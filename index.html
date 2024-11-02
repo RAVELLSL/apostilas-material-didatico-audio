@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Material Didático em Áudio</title>
+    <title>Apostilas para Dispositivos Móveis</title>
     <style>
         /* Estilos Gerais */
         body {
@@ -21,14 +21,22 @@
             text-align: center;
         }
 
+        h2.subtitle {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #666;
+        }
+
         main {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: calc(100vh - 80px);
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
         }
 
-        .aula {
+        .module-card {
             background-color: white;
             padding: 20px;
             border-radius: 8px;
@@ -37,13 +45,20 @@
             width: 300px;
         }
 
-        .tematica img {
+        .module-card img {
             width: 100%;
             height: auto;
             border-radius: 8px;
+            margin-bottom: 10px;
         }
 
-        .ficha a {
+        .module-card h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .module-card a {
             display: inline-block;
             padding: 10px 20px;
             background-color: #555;
@@ -53,172 +68,31 @@
             transition: background-color 0.3s;
         }
 
-        .ficha a:hover {
-            background-color: #777;
-        }
-
-        /* Modal Estilo */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 60%; /* Reduzido um pouco */
-            max-width: 800px;
-            max-height: 80%;
-            overflow-y: auto;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .modal-content h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-
-        /* Ajuste do tamanho do iframe para o tamanho do player de áudio */
-        .modal-content iframe {
-            width: 100%;
-            height: 60px; /* Altura ajustada para o player de áudio */
-            border: none;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        /* Botão Fechar ajustado para ter o mesmo estilo do botão Acessar */
-        .modal-content button.close {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #555;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1.1em;
-            transition: background-color 0.3s;
-        }
-
-        .modal-content button.close:hover {
+        .module-card a:hover {
             background-color: #777;
         }
 
         /* Responsividade */
         @media only screen and (max-width: 768px) {
-            .modal-content {
-                width: 90%;
-                padding: 20px;
-            }
-
-            .modal-content h2 {
-                font-size: 1.5em;
-            }
-        }
-
-        @media only screen and (max-width: 480px) {
-            header {
-                font-size: 1.2em;
-            }
-
-            .modal-content {
-                width: 95%;
-                padding: 15px;
-            }
-
-            .modal-content h2 {
-                font-size: 1.3em;
+            main {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Material Didático em Áudio</h1>
+        <h1>Apostilas para Dispositivos Móveis</h1>
     </header>
+    <h2 class="subtitle">Inclusão Digital</h2>
     <main>
-        <div class="aula">
-            <div class="tematica">
-                <h2>Sistema de Informação e Noções Gerais de Informática Básica</h2>
-                <img src="https://www.cursosabeline.com.br/webroot/cur_cache/curso-com-certificado-de-informatica-basica-1567603559-870-810b01c8.jpg" alt="informática básica">
-                <div class="ficha">
-                    <p><a href="#" onclick="openModal()">Acessar</a></p>
-                </div>
-            </div>
+        <div class="module-card">
+            <h3>Módulo 1:<br>Sistema de Informação e Noções Gerais de Informática Básica</h3>
+            <img src="https://www.cursosabeline.com.br/webroot/cur_cache/curso-com-certificado-de-informatica-basica-1567603559-870-810b01c8.jpg" alt="informática básica">
+            <p><a href="https://ravellsl.github.io/apostila--modulo1-smartphone/"target="_blank">Acessar</a></p>
         </div>
+       
     </main>
-
-    <!-- Modal -->
-    <div id="audioModal" class="modal">
-        <div class="modal-content">
-            <h2 id="modalTitle">Sistema de Informação e Noções Gerais de Informática Básica</h2>
-            <div id="iframeContainer"></div> <!-- Contêiner para múltiplos iframes -->
-            <button class="close" onclick="closeModal()">Fechar</button>
-        </div>
-    </div>
-
-    <script>
-        // Função para abrir o modal com vários iframes
-        function openModal() {
-            const iframes = [
-                {title: 'Sistemas de Informação em Tecnologia e Informática Básica', url: 'https://drive.google.com/file/d/1d2nzFumQ2OQCFaD3xhrCuN0ruDHghY80/preview'},
-                {title: 'Noções Gerais de Informática Básica', url: 'https://drive.google.com/file/d/1XjaFNVxWeECZGFV8gex0iK51NycvKBpH/preview'},
-                {title: 'Definições Gerais', url: 'https://drive.google.com/file/d/11RMKgcmAok3qrvmpzY9Si7kNUUPnDnyy/preview'},
-                {title: 'História da Computação', url: 'https://drive.google.com/file/d/1LQ5tPDI2J8A5Cq59XFtbh57GoiIhhq7h/preview'},
-                {title: 'Processamento de Dados', url: 'https://drive.google.com/file/d/1BDzkRyciY7r949YJTRIvAOK-vbJs3P0n/preview'},
-                {title: 'Introdução ao Sistema Computacional', url: 'https://drive.google.com/file/d/1G2spcDOhSqpRudE9gKErhtrVd_dI4QRm/preview'},
-                {title: 'Dispositivos de Processamento', url: 'https://drive.google.com/file/d/1jvW4dltX1MFe6gP4eoqLfVE0wlTc9JHf/preview'},
-                {title: 'Dispositivos de Entrada de Informações', url: 'https://drive.google.com/file/d/1NDmy3h7IXt6keVAiArgHWu_HFzJEU50x/preview'},
-                {title: 'Dispositivos de Saída de Informações', url: 'https://drive.google.com/file/d/1sn4js7RpX_mGIsb9fMlKVJYTI0mam62l/preview'},
-                {title: 'Dispositivos de Entrada e Saída de Informações', url: 'https://drive.google.com/file/d/195tfdTjKc1ysYnqB1koW9SDXRHiRkC0C/preview'},
-                {title: 'Memórias: Principal, Secundária e Auxiliar', url: 'https://drive.google.com/file/d/1c_drknxjqKEh-xP7vxyLkKZoH7Z5CS7_/preview'},
-                {title: 'Organização, Representação Lógica de Dados e Capacidade de Armazenamento', url: 'https://drive.google.com/file/d/1aLj5iJfexmGz_y5J1TaspqhIb3uuudYh/preview'},
-                {title: 'Peças e Componentes Internos do PC', url: 'https://drive.google.com/file/d/1bSrWEVA_uyIaT0xxAKkqWmhsMyAax2bw/preview'},
-                {title: 'Considerações Finais', url: 'https://drive.google.com/file/d/1NL3GS3ghawJLaICqxWW8QUufQhjC9y34/preview'}
-            ];
-
-            const iframeContainer = document.getElementById('iframeContainer');
-            iframeContainer.innerHTML = ''; // Limpar iframes anteriores
-
-            // Adicionar novos iframes
-            iframes.forEach(function(iframeData) {
-                // Criar título
-                const iframeTitle = document.createElement('h3');
-                iframeTitle.innerText = iframeData.title;
-                iframeContainer.appendChild(iframeTitle);
-
-                // Criar iframe
-                const iframe = document.createElement('iframe');
-                iframe.src = iframeData.url;
-                iframeContainer.appendChild(iframe);
-            });
-
-            document.getElementById('audioModal').style.display = 'flex';
-        }
-
-        // Função para fechar o modal
-        function closeModal() {
-            document.getElementById('audioModal').style.display = 'none';
-            document.getElementById('iframeContainer').innerHTML = ''; // Limpar iframes ao fechar
-        }
-
-        // Fechar o modal ao clicar fora do conteúdo
-        window.onclick = function(event) {
-            var modal = document.getElementById('audioModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
 </body>
 </html>
